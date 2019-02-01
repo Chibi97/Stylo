@@ -1,4 +1,6 @@
 <?php 
+  session_start();
+	require_once "php/utilities.php";
 	require_once "../database.php";
 ?>
 <!DOCTYPE html>
@@ -37,7 +39,7 @@
 			include_once "views/slider.php";
 			include_once "views/featured-products.php";
 			include_once "views/advertising.php";
-		  break;
+			break;
 	}
 	
 	include_once "views/footer.php";

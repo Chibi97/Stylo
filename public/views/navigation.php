@@ -1,14 +1,18 @@
-	<!-- Header -->
+<?php 
+	$links = selectMultipleRows($conn, "SELECT * FROM links");
+?>
+
+<!-- Header -->
 	<header class="header1">
 		<!-- Header desktop -->
 		<div class="container-menu-header">
 			<div class="topbar">
 				<div class="topbar-social">
-					<a href="#" class="topbar-social-item fab fa-facebook-f"></a>
-					<a href="#" class="topbar-social-item fab fa-instagram"></a>
-					<a href="#" class="topbar-social-item fab fa-pinterest-p"></a>
-					<a href="#" class="topbar-social-item fab fa-snapchat-ghost"></a>
-					<a href="#" class="topbar-social-item fab fa-youtube"></a>
+					<a href="https://www.facebook.com/" class="topbar-social-item fab fa-facebook-f"></a>
+					<a href="https://www.instagram.com/" class="topbar-social-item fab fa-instagram"></a>
+					<a href="https://www.pinterest.com/" class="topbar-social-item fab fa-pinterest-p"></a>
+					<a href="https://www.snapchat.com/" class="topbar-social-item fab fa-snapchat-ghost"></a>
+					<a href="https://www.youtube.com/" class="topbar-social-item fab fa-youtube"></a>
 				</div>
 
 				<span class="topbar-child1">
@@ -16,9 +20,9 @@
 				</span>
 
 				<div class="topbar-child2">
-					<span class="topbar-email">
+					<!-- <span class="topbar-email">
 						Admin linkovi, login, register
-					</span>
+					</span> -->
 				</div>
 			</div>
 
@@ -32,29 +36,13 @@
 				<div class="wrap_menu">
 					<nav class="menu">
 						<ul class="main_menu">
+							<?php foreach ($links as $link) :
+							      if($link->name == "Admin panel") continue;
+							?>
 							<li>
-								<a href="index.php">Home</a>
+								<a href='<?= $link->path ?>'><?= $link->name ?></a>
 							</li>
-
-							<li>
-                <a href="index.php?page=shop">Shop</a>
-                <!-- <ul class="sub_menu">
-									<li><a href="#">FOR HER</a></li>
-									<li><a href="#">FOR HIM</a></li>
-								</ul> -->
-							</li>
-
-							<li>
-								<a href="index.php?page=popular">Most popular items</a>
-							</li>
-
-							<li>
-								<a href="index.php?page=about">About author</a>
-							</li>
-
-							<li>
-								<a href="index.php?page=contact">Contact</a>
-							</li>
+							<?php endforeach ?>
 						</ul>
 					</nav>
 				</div>
@@ -130,11 +118,11 @@
 
 					<li class="item-topbar-mobile p-l-10">
 						<div class="topbar-social-mobile">
-							<a href="#" class="topbar-social-item fab fa-facebook-f"></a>
-							<a href="#" class="topbar-social-item fab fa-instagram"></a>
-							<a href="#" class="topbar-social-item fab fa-pinterest-p"></a>
-							<a href="#" class="topbar-social-item fab fa-snapchat-ghost"></a>
-							<a href="#" class="topbar-social-item fab fa-youtube"></a>
+							<a href="https://www.facebook.com/" class="topbar-social-item fab fa-facebook-f"></a>
+							<a href="https://www.instagram.com/" class="topbar-social-item fab fa-instagram"></a>
+							<a href="https://www.pinterest.com/" class="topbar-social-item fab fa-pinterest-p"></a>
+							<a href="https://www.snapchat.com/" class="topbar-social-item fab fa-snapchat-ghost"></a>
+							<a href="https://www.youtube.com" class="topbar-social-item fab fa-youtube"></a>
 						</div>
 					</li>
 
