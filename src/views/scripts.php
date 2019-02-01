@@ -27,8 +27,8 @@
 	</script>
 
   <!-- Slick -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-	<script type="text/javascript" src="js/slick-custom.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js"></script>
+	<script type="text/javascript" src="/js/slick-custom.js"></script>
 
   <!-- Lightbox2 -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
@@ -60,7 +60,7 @@
 
   <!-- Google maps -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
-	<script src="js/map-custom.js"></script>
+	<script src="/js/map-custom.js"></script>
 
   <!-- My scripts -->
-	<script src="js/main.js"></script>
+	<script src="/js/main.js"></script>
