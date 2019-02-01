@@ -1,3 +1,4 @@
+  <!-- Main Slider -->
 <section class="slide1">
 		<div class="wrap-slick1">
 			<div class="slick1">

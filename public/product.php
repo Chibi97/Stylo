@@ -439,29 +439,6 @@
 							Filters
 						</h4>
 
-						<div class="filter-price p-t-22 p-b-50 bo3">
-							<div class="m-text15 p-b-17">
-								Price
-							</div>
-
-							<div class="wra-filter-bar">
-								<div id="filter-bar"></div>
-							</div>
-
-							<div class="flex-sb-m flex-w p-t-16">
-								<div class="w-size11">
-									<!-- Button -->
-									<button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
-										Filter
-									</button>
-								</div>
-
-								<div class="s-text3 p-t-10 p-b-10">
-									Range: $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
-								</div>
-							</div>
-						</div>
-
 						<div class="filter-color p-t-22 p-b-50 bo3">
 							<div class="m-text15 p-b-12">
 								Color
@@ -1158,6 +1135,8 @@
 	 crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	 crossorigin="anonymous"></script>
+
+
 	<!-- Select2 -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
 	<script type="text/javascript">
@@ -1193,32 +1172,7 @@
 			});
 		});
 	</script>
-
-	<!-- noUIslider -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js"></script>
-	<script type="text/javascript">
-		/*[ No ui slider ]*/
-		var filterBar = document.getElementById('filter-bar');
-
-		noUiSlider.create(filterBar, {
-			start: [50, 200],
-			connect: true,
-			range: {
-				'min': 50,
-				'max': 200
-			}
-		});
-
-		var skipValues = [
-			document.getElementById('value-lower'),
-			document.getElementById('value-upper')
-		];
-
-		filterBar.noUiSlider.on('update', function (values, handle) {
-			skipValues[handle].innerHTML = Math.round(values[handle]);
-		});
-	</script>
-
+	
 	<script src="js/main.js"></script>
 
 </body>
