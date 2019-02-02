@@ -1609,7 +1609,70 @@ li.sale-noti > a {
 }
 
 .swal-footer {
-    margin-top: 0;
+  margin-top: 0;
+}
+
+/* ~~~ My css ~~~ */
+.foo-container {
+  justify-content: center;
+}
+footer .foo-left {
+  width: 30%;
+}
+
+footer .foo-right {
+  display: flex;
+}
+
+ul.foo-filters {
+  display: flex;
+  height: 220px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.foo-filters li {
+  margin-right: 35px;
+  text-align: left;
+}
+
+.foo-soc {
+  justify-content: flex-start;
+}
+
+@media only screen and (max-width: 660px) {
+  .foo-left { 
+    width: 50% !important;
+  }
+  ul.foo-filters {
+    flex-wrap: nowrap !important;
+    height: unset !important;
+  }
+
+  .respon4 {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .foo-left {
+    width: 90% !important;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .foo-left {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  .foo-soc {
+    justify-content: center;
+  }
+  .foo-desc {
+    text-align: justify;
+  }
+
 }
 
 

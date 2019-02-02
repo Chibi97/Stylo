@@ -1,6 +1,6 @@
 <?php 
-	$links = selectMultipleRows($conn, "SELECT * FROM links l INNER JOIN link_positions lp ON l.id_position = lp.id");
-	$count_cart = selectMultipleRows($conn, "SELECT COUNT(*) AS num FROM shopping_cart WHERE id_user='1'");
+	$links = selectRows($conn, "SELECT * FROM links l INNER JOIN link_positions lp ON l.id_position = lp.id");
+	$count_cart = selectRows($conn, "SELECT COUNT(*) AS num FROM shopping_cart WHERE id_user='1'");
 ?>
 
 <!-- Header -->

@@ -13,11 +13,9 @@
 	  view("navigation"); 
 	
 		$route = resolveRoute();
-		if(isset($route["view"])) {
 			$view = $route["view"];
 			$args = $route["args"];
 			view($view, compact("args"));
-		} else view("404");
 	 ?>
 
 	<?php view("footer"); ?>

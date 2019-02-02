@@ -32,7 +32,7 @@
     include $file;
   }
 
-  function selectMultipleRows($conn, $upit) {
+  function selectRows($conn, $upit) {
     $result = $conn->query($upit);
     
     if($result->rowCount() == 0) {
@@ -77,7 +77,10 @@
         "args" => $capture_group
       ];
     } 
-    return "404";
+    return [
+      "view" => "404",
+      "args" => []
+    ];
   }
 
 
