@@ -11,7 +11,7 @@
  * Koriscenjem extract() mi popunjavamo scope od funckije view sa varijablama
  * koji je korisnik nase funkcije prosledio.
  */
-  function view($templateName, $varScope = []) {
+  function view($templateName, $varScope = [], $baseFolder = "views") {
     global $conn;
 
     if(is_array($templateName)) {
@@ -22,19 +22,26 @@
     }
 
     extract($varScope);
-    $file = "views/$templateName.php";
+    $file = $baseFolder . "/$templateName.php";
     
-    // TODO: treba raditi samo u development modu aplikacije.
-    $viewPath = dirname(__FILE__) . "\\views\\$templateName.php";
+    // treba raditi samo u development modu aplikacije
+    $viewPath = dirname(__FILE__) . "\\$baseFolder\\$templateName.php";
     if(!file_exists($viewPath)) {
       throw new Error("File $file nije pronadjen");
     }
-
     include $file;
   }
 
   function selectMultipleRows($conn, $upit) {
     $result = $conn->query($upit);
+    
+    if($result->rowCount() == 0) {
+      return [];
+    }
+
+    if($result->rowCount() == 1) {
+      return $result->fetch();
+    }
     return $result->fetchAll();
   }
 
@@ -48,25 +55,26 @@
       '/^\/about$/'          => "about",
       '/^\/contact$/'        => "contact",
       '/^\/cart$/'           => "cart",
-      '/^\/product\/(\d+)\/(\d+)$/' => "product-details",
-      '/^\/index.php$/'      => $index
+      '/^\/product\/(\d+)$/' => "product-details",
+      '/^\/index.php$/'      => $index,
+      '/^\/panel$/'          => "admin/panel"
     ];
 
     $matched = null;
-    $reret = [];
+    $capture_group = [];
     foreach(array_keys($web) as $key) {
       if(preg_match($key, $uri, $re)) {
         $matched = $web[$key];
-        $reret = $re;
+        $capture_group = $re;
         break;
       }
     }
 
-    array_shift($reret);
+    array_shift($capture_group);
     if($matched) {
       return [
         "view" => $matched,
-        "args" => $reret
+        "args" => $capture_group
       ];
     } 
     return "404";

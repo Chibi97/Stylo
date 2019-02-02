@@ -6,17 +6,18 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php view("head"); ?>
-	 
 
 <!-- <body class="animsition"> -->
 <body>
-  <?php view("navigation"); ?>
-
 	<?php 
+	  view("navigation"); 
+	
 		$route = resolveRoute();
-		$view = $route["view"];
-		$args = $route["args"];
-		view($view, compact("args"));
+		if(isset($route["view"])) {
+			$view = $route["view"];
+			$args = $route["args"];
+			view($view, compact("args"));
+		} else view("404");
 	 ?>
 
 	<?php view("footer"); ?>

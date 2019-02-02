@@ -165,7 +165,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Herschel supply co 25l
 									</a>
 
@@ -198,7 +198,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Denim jacket blue
 									</a>
 
@@ -231,7 +231,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Coach slim easton black
 									</a>
 
@@ -264,7 +264,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Frayed denim shorts
 									</a>
 
@@ -301,7 +301,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Herschel supply co 25l
 									</a>
 
@@ -334,7 +334,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Denim jacket blue
 									</a>
 
@@ -367,7 +367,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Herschel supply co 25l
 									</a>
 
@@ -400,7 +400,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Denim jacket blue
 									</a>
 
@@ -433,7 +433,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Coach slim easton black
 									</a>
 
@@ -466,7 +466,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Frayed denim shorts
 									</a>
 
@@ -503,7 +503,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Herschel supply co 25l
 									</a>
 
@@ -536,7 +536,7 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="/product/1" class="block2-name dis-block s-text3 p-b-5">
 										Denim jacket blue
 									</a>
 
