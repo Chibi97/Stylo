@@ -74,12 +74,14 @@
     if($matched) {
       return [
         "view" => $matched,
-        "args" => $capture_group
+        "args" => $capture_group,
+        "namespace" => is_array($matched) ? $matched[0] : $matched
       ];
     } 
     return [
       "view" => "404",
-      "args" => []
+      "args" => [],
+      "namespace" => "404"
     ];
   }
 

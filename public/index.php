@@ -5,17 +5,18 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<?php view("head"); ?>
+	<?php view("head"); 
 
+	$route = resolveRoute();
+	$view = $route["view"];
+	$args = $route["args"];
+	$js_namespace = $route["namespace"];
+	?>
 <!-- <body class="animsition"> -->
-<body>
+<body class='' data-namespace="<?= $js_namespace ?>">
 	<?php 
 	  view("navigation"); 
-	
-		$route = resolveRoute();
-			$view = $route["view"];
-			$args = $route["args"];
-			view($view, compact("args"));
+		view($view, compact("args"));
 	 ?>
 
 	<?php view("footer"); ?>
