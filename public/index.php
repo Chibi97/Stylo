@@ -2,6 +2,9 @@
   session_start();
 	require_once "../src/utilities.php";
 	require_once "../database.php";
+	require_once "../src/repository.php";
+
+	$repo = new Repository($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">

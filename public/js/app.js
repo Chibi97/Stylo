@@ -42,7 +42,8 @@ let allProducts = (function () {
         price: 75.00,
         sale: 15.60
       }
-    ]
+    ],
+    filters: []
   };
 
   let rootNode;
@@ -124,6 +125,9 @@ let allProducts = (function () {
 
 $(document).ready(function () {
   let namespace = $("body").data("namespace");
+  /* shared js */
+
+  /* component js */
   switch (namespace) {
     case "all-products":
       allProducts.init();

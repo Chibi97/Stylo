@@ -1,6 +1,5 @@
 	<?php 
 		$cathegories = selectRows($conn, "SELECT * FROM cathegories");
-		$filters = selectRows($conn, "SELECT * FROM filters");
 	?>
 	
 	<!-- Footer -->
@@ -46,7 +45,7 @@
 					</h4>
 
 					<ul class="foo-filters">
-							<?php foreach ($filters as $f) : ?>
+							<?php foreach ($repo->allFilters() as $f) : ?>
 						  <li class="p-b-9">
 							  <a href="/shop/<?= strtolower($f->filter) ?>" class="s-text7"><?= $f->filter ?></a>
 							</li>

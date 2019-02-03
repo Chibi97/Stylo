@@ -13,6 +13,7 @@
  */
   function view($templateName, $varScope = [], $baseFolder = "views") {
     global $conn;
+    global $repo;
 
     if(is_array($templateName)) {
       foreach($templateName as $template) {

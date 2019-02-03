@@ -56,6 +56,16 @@
 						<h4 class="m-text14 p-b-32">
 							Filters
 						</h4>
+						
+						<ul class="p-b-54">
+							<?php foreach($repo->allFilters() as $filter): ?>
+							<li class="p-t-4">
+								<a href="#" class="s-text13">
+									<?= $filter->filter ?>
+								</a>
+							</li>
+							<?php endforeach ?>
+						</ul>
 
 						<div class="filter-color p-t-22 p-b-50 bo3">
 							<div class="m-text15 p-b-12">
