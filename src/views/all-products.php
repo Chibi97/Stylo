@@ -60,7 +60,7 @@
 						<ul class="p-b-54">
 							<?php foreach($repo->allFilters() as $filter): ?>
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="#" data-filter="<?= $filter->filter ?>" class="s-text13 product-filter">
 									<?= $filter->filter ?>
 								</a>
 							</li>

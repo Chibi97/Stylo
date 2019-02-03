@@ -18,43 +18,100 @@ let httpHelper = (function () {
 
 let allProducts = (function () {
   let state = {
-    products: [{
-        id: 1,
-        img: "/images/item1.jpg",
-        alt: "IMG-PRODUCT",
-        name: "Herschel Supply co 251",
-        price: 75.00,
-        new: true
-      },
-      {
-        id: 2,
-        img: "/images/item2.jpg",
-        alt: "IMG-PRODUCT",
-        name: "Herschel Supply co 251",
-        price: 75.00,
-        name: "Denim jacket blue"
-      },
-      {
-        id: 3,
-        img: "/images/item3.jpg",
-        alt: "IMG-PRODUCT",
-        name: "Coach slim easton black",
-        price: 75.00,
-        sale: 15.60
-      }
-    ],
+    products: [],
     filters: []
   };
 
-  let rootNode;
-
-  function setState(newState) {
-    state = newState
-    render();
-  }
+  let rootNode, filtersNode;
 
   function init() {
     rootNode = $("#products");
+    filtersNode  = $(".product-filter");
+
+    fetchData();
+    addEventListeners();
+  }
+
+  function fetchData() {
+    setTimeout(function() {
+      state.products = [
+        {
+          id: 1,
+          img: "/images/item1.jpg",
+          alt: "IMG-PRODUCT",
+          name: "Herschel Supply co 251",
+          price: 75.00,
+          new: true
+        },
+        {
+          id: 2,
+          img: "/images/item2.jpg",
+          alt: "IMG-PRODUCT",
+          name: "Herschel Supply co 251",
+          price: 75.00,
+          name: "Denim jacket blue"
+        },
+        {
+          id: 3,
+          img: "/images/item3.jpg",
+          alt: "IMG-PRODUCT",
+          name: "Coach slim easton black",
+          price: 75.00,
+          sale: 15.60
+        }
+      ];
+      render();
+    }, 1000)
+  }
+
+  function addEventListeners() {
+    filtersNode.each(function() {
+      let filter = $(this);
+      filter.click(function(e) {
+        e.preventDefault();
+        let node = $(this);
+        let f = node.data("filter");
+        if(!node.hasClass('active1')) {
+          state.filters.push(f);
+          node.addClass('active1');
+        } else {
+            let index = state.filters.indexOf(f);
+            state.filters.splice(index, 1);
+            node.removeClass('active1');
+        }
+        
+      });
+    });
+  }
+
+  function dependecies() {
+    $('.block2-btn-addcart').each(function () {
+      var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+      $(this).on('click', function () {
+        swal(nameProduct, "is added to cart !", "success");
+      });
+    });
+
+    $('.block2-btn-addwishlist').each(function () {
+      var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+      $(this).on('click', function () {
+        swal(nameProduct, "is added to wishlist !", "success");
+      });
+    });
+
+    $('.btn-addcart-product-detail').each(function () {
+      var nameProduct = $('.product-detail-name').html();
+      $(this).on('click', function () {
+        swal(nameProduct, "is added to wishlist !", "success");
+      });
+    });
+
+    $('.block2-btn-addwishlist').on('click', function (e) {
+      e.preventDefault();
+      $(this).addClass('block2-btn-towishlist');
+      $(this).removeClass('block2-btn-addwishlist');
+      $(this).off('click');
+    });
   }
 
   function render() {
@@ -64,6 +121,7 @@ let allProducts = (function () {
       html += template(product)
     });
     rootNode.html(html);
+    dependecies();
   }
 
   function price(product) {

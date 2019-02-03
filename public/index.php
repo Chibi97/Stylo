@@ -16,7 +16,7 @@
 	$js_namespace = $route["namespace"];
 	?>
 <!-- <body class="animsition"> -->
-<body class='' data-namespace="<?= $js_namespace ?>">
+<body class='animsition' data-namespace="<?= $js_namespace ?>">
 	<?php 
 	  view("navigation"); 
 		view($view, compact("args"));
