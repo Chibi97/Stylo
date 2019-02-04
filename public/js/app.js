@@ -1,20 +1,17 @@
-let httpHelper = (function () {
-
-  function get(uri, success, fail) {
-
-    $.ajax({
-      url: `/api/${uri}`,
-      method: "get",
-      dataType: "json",
-      success: success,
-      fail: fail
-    });
-  }
-
-  return {
-    get: get
-  }
-})();
+function observe(obj, fn) {
+  Object.keys(obj).forEach((key) => {
+    let v = obj[key];
+    Object.defineProperty(obj, key, {
+      get: function () {
+        return v;
+      },
+      set: function (value) {
+        v = value;
+        fn(key);
+      }
+    })
+  });
+}
 
 let allProducts = (function () {
   let state = {
@@ -25,6 +22,21 @@ let allProducts = (function () {
 
   let rootNode, filtersNode, categoriesNode;
 
+  function onStateChanged(key) {
+    if(key === "products") {
+      render();
+      return;
+    }
+
+    httpHelper.post("products", {
+      filters: state.filters,
+      categories: state.categories
+    }, (products) => { 
+      console.log(products);
+      state.products = products 
+    })
+  }
+
   function init() {
     rootNode        = $("#products");
     filtersNode    = $(".product-filter");
@@ -32,6 +44,8 @@ let allProducts = (function () {
 
     fetchData();
     addEventListeners();
+    
+    observe(state, onStateChanged);
   }
 
   function fetchData() {
@@ -72,11 +86,12 @@ let allProducts = (function () {
       let node = $(this);
       let f = node.data('filter');
       if(!node.hasClass('active1')) {
-        state.filters.push(f);
+        state.filters = [...state.filters, f]
         node.addClass('active1');
       } else {
           let index = state.filters.indexOf(f);
-          state.filters.splice(index, 1);
+          state.filters = 
+            state.filters.filter((_, i) => i != index);
           node.removeClass('active1');
       }
     });
@@ -89,6 +104,8 @@ let allProducts = (function () {
       if(c === 'All') {
         categoriesNode.removeClass('active1');
         state.categories = [];
+        node.addClass('active1');
+        return;
       } else {
         categoriesNode.each(function() {
           var n = $(this);
@@ -100,11 +117,12 @@ let allProducts = (function () {
       }
 
       if(!node.hasClass('active1')) {
-        state.categories.push(c);
+        state.categories = [...state.categories, c]
         node.addClass('active1')
       } else {
         let index = state.categories.indexOf(c);
-        state.categories.splice(index, 1);
+        state.categories = 
+          state.categories.filter((_, i) => i != index);
         node.removeClass('active1');
       }
     });
@@ -141,7 +159,6 @@ let allProducts = (function () {
   }
 
   function render() {
-    rootNode.html("");
     let html = "";
     state.products.forEach((product) => {
       html += template(product)

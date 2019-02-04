@@ -41,4 +41,5 @@
 
   <!-- My scripts -->
 	<script src="/js/main.js"></script>
+	<script src="/js/http-helper.js"></script>
 	<script src="/js/app.js"></script>
