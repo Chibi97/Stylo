@@ -22,31 +22,31 @@
 
 						<ul class="p-b-54">
 							<li class="p-t-4">
-								<a href="#" class="s-text13 active1">
+								<a href="#" data-category="All" class="s-text13 active1 site-category">
 									All
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="#" data-category="Women" class="s-text13 site-category">
 									Women
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="#" data-category="Men" class="s-text13 site-category">
 									Men
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="#" data-category="Kids" class="s-text13 site-category">
 									Kids
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="#" data-category="Accesories" class="s-text13 site-category">
 									Accesories
 								</a>
 							</li>

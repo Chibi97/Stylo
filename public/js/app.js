@@ -19,14 +19,16 @@ let httpHelper = (function () {
 let allProducts = (function () {
   let state = {
     products: [],
-    filters: []
+    filters: [],
+    categories: []
   };
 
-  let rootNode, filtersNode;
+  let rootNode, filtersNode, categoriesNode;
 
   function init() {
-    rootNode = $("#products");
-    filtersNode  = $(".product-filter");
+    rootNode        = $("#products");
+    filtersNode    = $(".product-filter");
+    categoriesNode = $(".site-category");
 
     fetchData();
     addEventListeners();
@@ -65,22 +67,46 @@ let allProducts = (function () {
   }
 
   function addEventListeners() {
-    filtersNode.each(function() {
-      let filter = $(this);
-      filter.click(function(e) {
-        e.preventDefault();
-        let node = $(this);
-        let f = node.data("filter");
-        if(!node.hasClass('active1')) {
-          state.filters.push(f);
-          node.addClass('active1');
-        } else {
-            let index = state.filters.indexOf(f);
-            state.filters.splice(index, 1);
-            node.removeClass('active1');
-        }
-        
-      });
+    filtersNode.click(function(e) {
+      e.preventDefault();
+      let node = $(this);
+      let f = node.data('filter');
+      if(!node.hasClass('active1')) {
+        state.filters.push(f);
+        node.addClass('active1');
+      } else {
+          let index = state.filters.indexOf(f);
+          state.filters.splice(index, 1);
+          node.removeClass('active1');
+      }
+    });
+    
+    categoriesNode.click(function(e) {
+      e.preventDefault();
+      let node = $(this);
+      let c = node.data('category');
+
+      if(c === 'All') {
+        categoriesNode.removeClass('active1');
+        state.categories = [];
+      } else {
+        categoriesNode.each(function() {
+          var n = $(this);
+          if(n.data('category') === 'All') {
+            n.removeClass('active1');
+            return;
+          }
+        });
+      }
+
+      if(!node.hasClass('active1')) {
+        state.categories.push(c);
+        node.addClass('active1')
+      } else {
+        let index = state.categories.indexOf(c);
+        state.categories.splice(index, 1);
+        node.removeClass('active1');
+      }
     });
   }
 
