@@ -1,5 +1,5 @@
 	<?php 
-		$cathegories = selectRows($conn, "SELECT * FROM cathegories");
+		$categories = selectRows($conn, "SELECT * FROM categories");
 	?>
 	
 	<!-- Footer -->
@@ -31,9 +31,9 @@
 					</h4>
 
 					<ul>
-						<?php foreach($cathegories as $cath) : ?>
+						<?php foreach($categories as $cat) : ?>
 						  <li class="p-b-9">
-							  <a href="/shop/<?= strtolower($cath->cathegory) ?>" class="s-text7"><?= $cath->cathegory ?></a>
+							  <a href="/shop/<?= strtolower($cat->category) ?>" class="s-text7"><?= $cat->category ?></a>
 							</li>
 						<?php endforeach ?>
 					</ul>

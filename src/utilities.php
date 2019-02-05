@@ -33,6 +33,59 @@
     include $file;
   }
 
+/*
+  set_error("login", "Neka greska")
+  get_error("login") ["Neka greska"]
+  get_error("login") []
+
+  set_error("login", "1")
+  set_error("login", "2")
+  get_error("login") ["1", "2"]
+  get_error("login") []
+  */
+
+  /**
+   * Run a query and use bindings to prepare the PDO statement.
+   * 
+   * @param PDO $conn the connection statement
+   * @param string $query the query to execute
+   * @param array[] $bindings array of bindings 
+   * @param bool $insert is query running in insert mode
+   */
+  function bindQuery($conn, $query, $bindings = [], $insert = false) {
+    $stmt = $conn->prepare($query);
+    foreach($bindings as $key => &$val) {
+      $stmt->bindParam(":$key", $val);
+    }
+    
+    $stmt->execute();
+    if(!$insert) {
+      return $stmt->fetchAll();
+    }
+
+    return [];
+  }
+
+  function mergeRequestParams()
+  {
+    $merged = [];
+
+    foreach ($_POST as $key => $val) {
+      $merged[$key] = $val;
+        // [ kljuc => vrednost ]
+    }
+
+    $other = json_decode(file_get_contents("php://input"), true);
+
+    if ($other) {
+      foreach ($other as $key => $val) {
+        $merged[$key] = $val;
+      }
+    }
+
+    return $merged;
+  }
+
   function selectRows($conn, $upit) {
     $result = $conn->query($upit);
     

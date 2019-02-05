@@ -26,3 +26,4 @@
 	<?php view("scripts"); ?>
 </body>
 </html>
+<?php ?>

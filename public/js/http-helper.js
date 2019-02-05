@@ -1,5 +1,5 @@
 let httpHelper = (function () {
-  function get(uri, success, fail) {
+  function get(uri, success, fail = (xhr) => console.log(xhr.status)) {
     $.ajax({
       url: `/api/${uri}`,
       method: "get",

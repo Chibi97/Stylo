@@ -28,7 +28,7 @@ let allProducts = (function () {
       return;
     }
 
-    httpHelper.post("products", {
+    httpHelper.post("products.php", {
       filters: state.filters,
       categories: state.categories
     }, (products) => { 
@@ -49,35 +49,9 @@ let allProducts = (function () {
   }
 
   function fetchData() {
-    setTimeout(function() {
-      state.products = [
-        {
-          id: 1,
-          img: "/images/item1.jpg",
-          alt: "IMG-PRODUCT",
-          name: "Herschel Supply co 251",
-          price: 75.00,
-          new: true
-        },
-        {
-          id: 2,
-          img: "/images/item2.jpg",
-          alt: "IMG-PRODUCT",
-          name: "Herschel Supply co 251",
-          price: 75.00,
-          name: "Denim jacket blue"
-        },
-        {
-          id: 3,
-          img: "/images/item3.jpg",
-          alt: "IMG-PRODUCT",
-          name: "Coach slim easton black",
-          price: 75.00,
-          sale: 15.60
-        }
-      ];
-      render();
-    }, 1000)
+    httpHelper.get("products.php", (products) => {
+      state.products = products;
+    });
   }
 
   function addEventListeners() {
@@ -189,7 +163,7 @@ let allProducts = (function () {
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative ${product.new ?  'block2-labelnew':''}">
-									<img src="${product.img}" alt="${product.alt}">
+									<img src="${product.init_image}" alt="${product.alt}">
 
 									<div class="block2-overlay trans-0-4">
 										<a data-id="${product.id}" href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
