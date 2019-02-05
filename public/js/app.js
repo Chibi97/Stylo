@@ -157,12 +157,36 @@ let allProducts = (function () {
             </span>`
   }
 
+  function isOnSale(stateSale) {
+    console.log(stateSale)
+    if(!stateSale) {
+      return '';
+    }
+    return `<div class="label-product label-sale">
+              <p>Sale</p>
+            </div>`;
+  }
+
+  function isProductNew(stateNew, stateSale) {
+    if(stateNew == 0) {
+      var sale = isOnSale(stateSale);
+      if(!sale) {
+        return ``;
+      }
+      return sale;
+    }
+    return `<div class="label-product label-new">
+              <p>New</p>
+            </div>`;
+  }
+
   function template(product) {
     return `
       <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
 							<!-- Block2 -->
 							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative ${product.new ?  'block2-labelnew':''}">
+                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                  ${ isProductNew(product.new, product.sale) }
 									<img src="${product.init_image}" alt="${product.alt}">
 
 									<div class="block2-overlay trans-0-4">
